@@ -1,8 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-function Character({ name, image }) {
+function Character({ name, image, id, film, tv }) {
+  console.log(name);
   return (
-    <div className="column is-one-quarter-desktop is-one-third-tablet">
+    <Link to={`/character/${id}`}>
+      <div className="column is-one-quarter-desktop is-one-third-tablet">
         <div className="card">
           <div className="card-header">
             <div className="card-header-title">{name}</div>
@@ -16,7 +19,8 @@ function Character({ name, image }) {
             <h5>{film}</h5>
           </div> */}
         </div>
-    </div>
+      </div>
+    </Link>
   );
 }
 

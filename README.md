@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 FRE
 KFGFKNFNK
 RGF
@@ -8,8 +7,6 @@ RGF
 SEFKJS
 sssomething on line 2
 Hello elizbeth
-=======
 hello changes to read me
 This is fun!!
 Another change
->>>>>>> main
