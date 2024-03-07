@@ -47,12 +47,12 @@ function CharacterList() {
           {filterCharacters()?.map((character) => {
             return (
               <Character
-                key={character.name}
+                key={character._id}
                 id={character._id}
                 name={character.name}
                 image={character.imageUrl}
-                film={character.data.films}
-                tv={character.data.tvShows}
+                film={character.films}
+                tv={character.tvShows}
               />
             );
           })}

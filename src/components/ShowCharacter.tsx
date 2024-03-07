@@ -35,8 +35,8 @@ function ShowCharacter() {
           <div className="content">
             <p>
               {character.name}
-              {character.data.film}
-              {character.data.tv}
+              {character.film}
+              {character.tv}
               <small>31m</small>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
               efficitur sit amet massa fringilla egestas. Nullam condimentum

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function Character({ name, image, id, film, tv }) {
-  console.log(name);
+  console.log(film);
   return (
     <Link to={`/character/${id}`}>
       <div className="column is-one-quarter-desktop is-one-third-tablet">
