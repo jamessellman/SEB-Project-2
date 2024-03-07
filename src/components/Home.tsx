@@ -5,13 +5,11 @@ function Home() {
     console.log("The Home Page has mounted");
   }, []);
   return (
-    <section className="hero is-fullheight has-background-primary-dark ">
+    <section className="hero is-fullheight">
       <div className="hero-body has-text-centered">
-        <div className="container has-background-primary-light is-max-desktop py-6">
-          <h1 className="title is-1">Discover all things Disney</h1>
-          <h2 className="subtitle is-3">
-            Why did Mickey Mouse get hit by a snowball??
-          </h2>
+        <div className="container mickey">
+          <p className="title is-size-1 has-text-white">Discover Disney</p>
+          <p className="subtitle is-size-4 has-text-white">Dive into the world of your favourite Disney Characters</p>
         </div>
       </div>
     </section>

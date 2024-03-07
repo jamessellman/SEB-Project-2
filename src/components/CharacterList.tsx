@@ -22,28 +22,28 @@ function CharacterList() {
 
   React.useEffect(() => {
     async function fetchCharacters() {
-      const resp = await fetch("https://api.disneyapi.dev/character");
+      const resp = await fetch(
+        "https://api.disneyapi.dev/character?pageSize=200"
+      );
       const characterData = await resp.json();
       setCharacters(characterData);
-      console.log(characterData.data);
-      console.log(characterData.data[0]);
-      console.log(characterData.data[0].name);
-      console.log(characterData.data[0].imageUrl);
-      console.log(characterData.data[0].films);
+      console.log(characterData.data.sourceUrl);
     }
     fetchCharacters();
   }, []);
   return (
     <section className="section">
       <div className="container">
-        <h1 className="title is-1">Characters</h1>
+        <h1 className="title is-1 has-text-white">Characters</h1>
+        <div className="inputdiv">
         <input
           className="input is-info mb-4"
           placeholder="Search characters.."
           onChange={handleChange}
         />
+        </div>
 
-        <div className="columns is-multiline">
+        <div className="columns  is-multiline is-one-quarter-desktop is-one-third-tablet">
           {filterCharacters()?.map((character) => {
             return (
               <Character
@@ -51,8 +51,9 @@ function CharacterList() {
                 id={character._id}
                 name={character.name}
                 image={character.imageUrl}
-                film={character.films}
-                tv={character.tvShows}
+                films={character.films}
+                tvShows={character.tvShows}
+                linkSource={character.sourceUrl}
               />
             );
           })}
