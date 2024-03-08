@@ -2,7 +2,6 @@ import React from "react";
 import Character from "./Character";
 
 function CharacterList() {
-
   //Settings states for character, search bar and drop down
   const [characters, setCharacters] = React.useState<any>([]);
   const [search, setSearch] = React.useState("");
@@ -39,7 +38,7 @@ function CharacterList() {
       );
     });
   }
-// async funtion called on load, to pull through first 200 results of api, and is filtered through further down jsx. 
+  // async funtion called on load, to pull through first 200 results of api, and is filtered through further down jsx.
   React.useEffect(() => {
     async function fetchCharacters() {
       const resp = await fetch(
@@ -51,9 +50,8 @@ function CharacterList() {
     fetchCharacters();
   }, []);
 
-
-//now a value as been set by handleChange film this async function can now run, returning the api filtered with value set (which is in this case is movies)
-//this then sets characters to the new data from filtered api 
+  //now a value as been set by handleChange film this async function can now run, returning the api filtered with value set (which is in this case is movies)
+  //this then sets characters to the new data from filtered api
   React.useEffect(() => {
     async function fetchCharacter() {
       const resp = await fetch(
@@ -69,22 +67,20 @@ function CharacterList() {
     <section className="hero is-fullheight main-characters">
       <div className="container">
         <h1 className="title is-1 has-text-white ml-6">Characters</h1>
-        <div className="columns is-multiline ">
-          <div className="column is-two-thirds ml-6 ">
-            <input
-              className="input is-centered mb-4"
-              placeholder="Search characters.."
-              onChange={handleChange}
-            />
-            {/* Drop down to take value from user choice which calls teh handlechangefilm function */}
-            <label className="select is-info">
-              <select  value={value} onChange={handleChangeFilm}>
-                {filmOptions.map((option) => {
-                  return <option value={option.value}>{option.label}</option>;
-                })}
-              </select>
-            </label>
-          </div>
+        <div className="columns filtered is-multiline ml-6 ">
+          <input
+            className="column is-two-third input mb-4 "
+            placeholder="Search characters.."
+            onChange={handleChange}
+          />
+          {/* Drop down to take value from user choice which calls teh handlechangefilm function */}
+          <label className="column drop select is-info mb-4 p-0 is-pulled-right">
+            <select value={value} onChange={handleChangeFilm}>
+              {filmOptions.map((option) => {
+                return <option value={option.value}>{option.label}</option>;
+              })}
+            </select>
+          </label>
         </div>
 
         <div className="columns characters is-centered is-multiline is-one-quarter-desktop is-one-third-tablet">
