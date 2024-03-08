@@ -2,10 +2,13 @@ import React from "react";
 import Character from "./Character";
 
 function CharacterList() {
+
+  //Settings states for character, search bar and drop down
   const [characters, setCharacters] = React.useState<any>([]);
   const [search, setSearch] = React.useState("");
   const [value, setValue] = React.useState("");
 
+  //hardcoding film options for drop down
   const filmOptions = [
     { label: "Select Film", value: "" },
     { label: "Hercules", value: "Hercules" },
@@ -16,17 +19,17 @@ function CharacterList() {
     { label: "Big Hero 6", value: "Big Hero 6" },
   ];
 
-  React.useEffect(() => {
-    console.log("The character list Page has mounted");
-  }, []);
-
+  //functions to handle change events for drop down and search bar
   function handleChange(e: any) {
     setSearch(e.currentTarget.value);
   }
+  //handleChangefilm function sets value to the change event on the drop down
   function handleChangeFilm(e: any) {
     setValue(e.currentTarget.value);
   }
 
+  // once the programme reaches line 89, whither the be with data from the onload api or dropdown amended api, this filter character function is called
+  // which filters through data, and returns is search is empty string or search is included in data and return id value is equal to empty string or included in data
   function filterCharacters() {
     return characters.data?.filter((character: any) => {
       return (
@@ -36,7 +39,7 @@ function CharacterList() {
       );
     });
   }
-
+// async funtion called on load, to pull through first 200 results of api, and is filtered through further down jsx. 
   React.useEffect(() => {
     async function fetchCharacters() {
       const resp = await fetch(
@@ -48,6 +51,9 @@ function CharacterList() {
     fetchCharacters();
   }, []);
 
+
+//now a value as been set by handleChange film this async function can now run, returning the api filtered with value set (which is in this case is movies)
+//this then sets characters to the new data from filtered api 
   React.useEffect(() => {
     async function fetchCharacter() {
       const resp = await fetch(
@@ -66,13 +72,13 @@ function CharacterList() {
         <div className="columns is-multiline ">
           <div className="column is-two-thirds ml-6 ">
             <input
-              className="input is-centered mb-5"
+              className="input is-centered mb-4"
               placeholder="Search characters.."
               onChange={handleChange}
             />
-            <label>
-              Choose film
-              <select value={value} onChange={handleChangeFilm}>
+            {/* Drop down to take value from user choice which calls teh handlechangefilm function */}
+            <label className="select is-info">
+              <select  value={value} onChange={handleChangeFilm}>
                 {filmOptions.map((option) => {
                   return <option value={option.value}>{option.label}</option>;
                 })}

@@ -3,10 +3,12 @@ import { Link, useParams, useLocation } from "react-router-dom";
 import Character from "./Character";
 
 function ShowCharacter() {
+  // useParams is using id of click character
   const { id } = useParams();
 
   const [character, setCharacter] = React.useState<any>(null);
-
+// id is passed through async funtion to amend the url to filter the api to only bring through data about the specific character clicked on
+// that info is then passed mapped through to display 
   React.useEffect(() => {
     async function fetchCharacter() {
       const resp = await fetch(`https://api.disneyapi.dev/character/${id}`);
