@@ -12,6 +12,7 @@ function ShowCharacter() {
       const resp = await fetch(`https://api.disneyapi.dev/character/${id}`);
       const characterData = await resp.json();
       setCharacter(characterData.data);
+      console.log(characterData.data)
     }
     fetchCharacter();
   }, [id]);
