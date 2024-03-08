@@ -32,18 +32,20 @@ function CharacterList() {
     fetchCharacters();
   }, []);
   return (
-    <section className="section">
+    <section className="hero is-fullheight">
       <div className="container">
-        <h1 className="title is-1 has-text-white">Characters</h1>
-        <div className="inputdiv">
-        <input
-          className="input is-info mb-4"
-          placeholder="Search characters.."
-          onChange={handleChange}
-        />
+        <h1 className="title is-1 has-text-white ml-6">Characters</h1>
+        <div className="columns is-multiline ">
+          <div className="column is-two-thirds ml-6 ">
+            <input
+              className="input is-centered mb-5"
+              placeholder="Search characters.."
+              onChange={handleChange}
+            />
+          </div>
         </div>
 
-        <div className="columns  is-multiline is-one-quarter-desktop is-one-third-tablet">
+        <div className="columns is-centered is-multiline is-one-quarter-desktop is-one-third-tablet">
           {filterCharacters()?.map((character) => {
             return (
               <Character

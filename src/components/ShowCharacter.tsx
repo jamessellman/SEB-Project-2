@@ -21,15 +21,15 @@ function ShowCharacter() {
   }
   console.log(character.sourceUrl);
   return (
-    <section className="hero character is-fullheight">
-      <div className="box">
+    <section className="hero is-fullheight">
+      <div className="box is-centered has-background-success-light">
         <div className="columns is-multiline">
-          <div className="column is-one-third">
+          <div className="column is-two-fifths">
             <figure className="image is-full-width">
               <img src={character.imageUrl} alt={character.name} />
             </figure>
           </div>
-          <div className="column is-one-quarter-desktop is-one-third-tablet is-mobile">
+          <div className="column is-one-third">
             <div className="content">
               <h2 className="is-size-2">{character.name}</h2>
               <h5 className="mt-2 mb-1">Films:</h5>
@@ -50,12 +50,12 @@ function ShowCharacter() {
               </div>
             </div>
           </div>
-          <div className="column is-one-quarter">
+          <div className="column ">
             <p className="is-pulled-right">Disney ID: {character._id}</p>
           </div>
         </div>
-        <div>
-          <a className="learn-more" href={character.sourceUrl} target="_blank">
+        <div className="is-flex">
+          <a className="learn-more " href={character.sourceUrl} target="_blank">
             Click here to find out more about this Disney character
           </a>
         </div>

@@ -5,17 +5,16 @@ function Navbar() {
   return (
     <>
       <header>
-        <nav className="navbar is-dark">
-          <div className="container">
-            <div className="navbar-brand">
-              {/* // ! Instead of div elements, these will need to be Link components to the correct routes. Replace the divs with Link */}
-              <Link className="navbar-item" to="/">
-                Home
-              </Link>
-              <Link to="/characterList" className="navbar-item">
-                Characters
-              </Link>
-            </div>
+        <nav className="navbar-is-transparent p-3">
+          <div className="navbar-brand is-size-5">
+            {/* // ! Instead of div elements, these will need to be Link components to the correct routes. Replace the divs with Link */}
+
+            <Link className="navbar-item has-text-white" to="/">
+              Home
+            </Link>
+            <Link to="/characterList" className="navbar-item  has-text-white">
+              Characters
+            </Link>
           </div>
         </nav>
       </header>
