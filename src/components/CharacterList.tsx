@@ -2,7 +2,7 @@ import React from "react";
 import Character from "./Character";
 
 function CharacterList() {
-  const [characters, setCharacters] = React.useState([]);
+  const [characters, setCharacters] = React.useState<any>([]);
   const [search, setSearch] = React.useState("");
   const [value, setValue] = React.useState("");
 
@@ -20,15 +20,15 @@ function CharacterList() {
     console.log("The character list Page has mounted");
   }, []);
 
-  function handleChange(e) {
+  function handleChange(e: any) {
     setSearch(e.currentTarget.value);
   }
-  function handleChangeFilm(e) {
+  function handleChangeFilm(e: any) {
     setValue(e.currentTarget.value);
   }
 
   function filterCharacters() {
-    return characters.data?.filter((character) => {
+    return characters.data?.filter((character: any) => {
       return (search === "" ||character.name.toLowerCase().includes(search.toLowerCase()) )
       && (value === "" || character.films.includes(value)) ;
     });
@@ -79,7 +79,7 @@ function CharacterList() {
         </div>
 
         <div className="columns is-centered is-multiline is-one-quarter-desktop is-one-third-tablet">
-          {filterCharacters()?.map((character) => {
+          {filterCharacters()?.map((character: any) => {
               return (
               <Character
                 key={character._id}

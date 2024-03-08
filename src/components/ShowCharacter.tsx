@@ -5,7 +5,7 @@ import Character from "./Character";
 function ShowCharacter() {
   const { id } = useParams();
 
-  const [character, setCharacter] = React.useState(null);
+  const [character, setCharacter] = React.useState<any>(null);
 
   React.useEffect(() => {
     async function fetchCharacter() {
@@ -20,7 +20,6 @@ function ShowCharacter() {
   if (!character) {
     return <p>Character Loading...</p>;
   }
-  console.log(character.sourceUrl);
   return (
     <section className="hero is-fullheight">
       <div className="box is-centered has-background-success-light">
@@ -35,13 +34,13 @@ function ShowCharacter() {
               <h2 className="is-size-2">{character.name}</h2>
               <h5 className="mt-2 mb-1">Films:</h5>
               <div>
-                {character.films.map((film) => {
+                {character.films.map((film: any) => {
                   return <p className="my-2">{film}</p>;
                 })}
               </div>
               <h5 className="mt-4 mb-1">TV Shows:</h5>
               <div>
-                {character.tvShows.map((tv) => {
+                {character.tvShows.map((tv : any) => {
                   if (!character.tvShows) {
                     return <p>No Shows</p>;
                   } else {
