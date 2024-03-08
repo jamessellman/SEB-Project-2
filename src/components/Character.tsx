@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Character({ name, image, id, films, tvShows, linkSource } : any) {
+function Character({ name, image, id, films, tvShows, linkSource }: any) {
   return (
     <Link to={`/character/${id}`}>
       <div className="column card has-background-success-light">

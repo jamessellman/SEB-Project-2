@@ -29,8 +29,11 @@ function CharacterList() {
 
   function filterCharacters() {
     return characters.data?.filter((character: any) => {
-      return (search === "" ||character.name.toLowerCase().includes(search.toLowerCase()) )
-      && (value === "" || character.films.includes(value)) ;
+      return (
+        (search === "" ||
+          character.name.toLowerCase().includes(search.toLowerCase())) &&
+        (value === "" || character.films.includes(value))
+      );
     });
   }
 
@@ -70,7 +73,7 @@ function CharacterList() {
             <label>
               Choose film
               <select value={value} onChange={handleChangeFilm}>
-              {filmOptions.map((option) => {
+                {filmOptions.map((option) => {
                   return <option value={option.value}>{option.label}</option>;
                 })}
               </select>
@@ -78,9 +81,9 @@ function CharacterList() {
           </div>
         </div>
 
-        <div className="columns is-centered is-multiline is-one-quarter-desktop is-one-third-tablet">
+        <div className="columns characters is-centered is-multiline is-one-quarter-desktop is-one-third-tablet">
           {filterCharacters()?.map((character: any) => {
-              return (
+            return (
               <Character
                 key={character._id}
                 id={character._id}
